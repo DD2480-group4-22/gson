@@ -35,6 +35,7 @@ import static com.google.gson.stream.JsonToken.STRING;
 
 @SuppressWarnings("resource")
 public final class JsonReaderTest extends TestCase {
+
   public void testReadArray() throws IOException {
     JsonReader reader = new JsonReader(reader("[true, true]"));
     reader.beginArray();
@@ -1836,5 +1837,13 @@ public final class JsonReaderTest extends TestCase {
       @Override public void close() throws IOException {
       }
     }; */
+  }
+
+  public void testPrintCoverage() {
+    JsonReader reader = new JsonReader(reader(""));
+    System.out.println("Coverage of skipUnQuotedValue:");
+    for (int i = 0; i < reader.coverageSkipUnQuotedValue.length; i++) {
+      System.out.println(i + ": " + reader.coverageSkipUnQuotedValue[i]);
+    }
   }
 }

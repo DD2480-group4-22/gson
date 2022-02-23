@@ -189,6 +189,9 @@ import java.util.Arrays;
  * @since 1.6
  */
 public class JsonReader implements Closeable {
+
+  public static boolean[] coverageSkipUnQuotedValue = new boolean[20];
+
   private static final long MIN_INCOMPLETE_INTEGER = Long.MIN_VALUE / 10;
 
   private static final int PEEKED_NONE = 0;
@@ -1121,32 +1124,101 @@ public class JsonReader implements Closeable {
 
   private void skipUnquotedValue() throws IOException {
     do {
+      // #0
+      coverageSkipUnQuotedValue[0] = true;
       int i = 0;
       for (; pos + i < limit; i++) {
+        // #1
+        coverageSkipUnQuotedValue[1] = true;
         switch (buffer[pos + i]) {
         case '/':
-        case '\\':
-        case ';':
-        case '#':
-        case '=':
+          // #2
+          coverageSkipUnQuotedValue[2] = true;
           checkLenient(); // fall-through
+          break;        
+        case '\\':
+          // #3
+          coverageSkipUnQuotedValue[3] = true;
+          checkLenient(); // fall-through
+          break;        
+        case ';':
+          // #4
+          coverageSkipUnQuotedValue[4] = true;
+          checkLenient(); // fall-through
+          break;        
+        case '#':
+          // #5
+          coverageSkipUnQuotedValue[5] = true;
+          checkLenient(); // fall-through
+          break;        
+        case '=':
+          // #6
+          coverageSkipUnQuotedValue[6] = true;
+          checkLenient(); // fall-through
+          break;
         case '{':
+          // #7
+          coverageSkipUnQuotedValue[7] = true;
+          pos += i;
+          return;        
         case '}':
+          // #8
+          coverageSkipUnQuotedValue[8] = true;
+          pos += i;
+          return;        
         case '[':
+          // #9
+          coverageSkipUnQuotedValue[9] = true;
+          pos += i;
+          return;        
         case ']':
+          // #10
+          coverageSkipUnQuotedValue[10] = true;
+          pos += i;
+          return;        
         case ':':
+          // #11
+          coverageSkipUnQuotedValue[11] = true;
+          pos += i;
+          return;        
         case ',':
+          // #12
+          coverageSkipUnQuotedValue[12] = true;
+          pos += i;
+          return;        
         case ' ':
+          // #13
+          coverageSkipUnQuotedValue[13] = true;
+          pos += i;
+          return;        
         case '\t':
+          // #14
+          coverageSkipUnQuotedValue[14] = true;
+          pos += i;
+          return;        
         case '\f':
+          // #15
+          coverageSkipUnQuotedValue[15] = true;
+          pos += i;
+          return;        
         case '\r':
+          // #16
+          coverageSkipUnQuotedValue[16] = true;
+          pos += i;
+          return;        
         case '\n':
+          // #17
+          coverageSkipUnQuotedValue[17] = true;
           pos += i;
           return;
         }
       }
+      // #18
+      coverageSkipUnQuotedValue[18] = true;
       pos += i;
     } while (fillBuffer(1));
+    // #19
+    coverageSkipUnQuotedValue[19] = true;
   }
 
   /**
