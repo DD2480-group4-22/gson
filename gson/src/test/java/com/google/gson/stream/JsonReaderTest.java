@@ -1968,6 +1968,58 @@ public final class JsonReaderTest {
     }; */
   }
 
+  // NEW TESTS BY OSKAR:
+
+  @Test
+  public void testSkipUnquotedSlash() throws IOException {
+    JsonReader reader = new JsonReader(reader("[" + 'x' + "/" + "]"));
+    reader.setLenient(true);
+    reader.beginArray();
+    reader.skipValue();
+    reader.endArray();
+    assertEquals(JsonToken.END_DOCUMENT, reader.peek());
+  }
+
+  @Test
+  public void testSkipUnquotedBackslash() throws IOException {
+    JsonReader reader = new JsonReader(reader("[" + 'x' + "\\" + "]"));
+    reader.setLenient(true);
+    reader.beginArray();
+    reader.skipValue();
+    reader.endArray();
+    assertEquals(JsonToken.END_DOCUMENT, reader.peek());
+  }
+
+  @Test
+  public void testSkipUnquotedSemicolon() throws IOException {
+    JsonReader reader = new JsonReader(reader("[" + 'x' + ";" + "]"));
+    reader.setLenient(true);
+    reader.beginArray();
+    reader.skipValue();
+    reader.endArray();
+    assertEquals(JsonToken.END_DOCUMENT, reader.peek());
+  }
+
+  @Test
+  public void testSkipUnquotedHashtag() throws IOException {
+    JsonReader reader = new JsonReader(reader("[" + 'x' + "#" + "]"));
+    reader.setLenient(true);
+    reader.beginArray();
+    reader.skipValue();
+    reader.endArray();
+    assertEquals(JsonToken.END_DOCUMENT, reader.peek());
+  }
+
+  @Test
+  public void testSkipUnquotedEquals() throws IOException {
+    JsonReader reader = new JsonReader(reader("[" + 'x' + "=" + "]"));
+    reader.setLenient(true);
+    reader.beginArray();
+    reader.skipValue();
+    reader.endArray();
+    assertEquals(JsonToken.END_DOCUMENT, reader.peek());
+  }
+
   @AfterClass
   public static void printCoverage() {  
     JsonReaderTest jrt = new JsonReaderTest();
