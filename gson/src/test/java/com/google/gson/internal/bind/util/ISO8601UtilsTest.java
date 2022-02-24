@@ -91,4 +91,25 @@ public class ISO8601UtilsTest {
           }
         });
     }
+
+    @Test
+    public void testDateHasNoTimeZone() throws ParseException {
+        final String dateStr = "2018-06-25T61:60:62";
+        assertThrows(ParseException.class, new ThrowingRunnable() {
+          @Override
+          public void run() throws Throwable {
+            ISO8601Utils.parse(dateStr, new ParsePosition(0));
+          }
+        });
+    }
+    @Test
+    public void testDateInvalidTimeZoneFormat() throws ParseException {
+        final String dateStr = "2018-06-25T61:60:62*03:00";
+        assertThrows(ParseException.class, new ThrowingRunnable() {
+          @Override
+          public void run() throws Throwable {
+            ISO8601Utils.parse(dateStr, new ParsePosition(0));
+          }
+        });
+    }
 }

@@ -85,16 +85,16 @@
             </jdkToolchain>
             <!-- Exclude `missing` group because some tags have been omitted when they are redundant -->
             <doclint>all,-missing</doclint>
-            <!-- Link against newer Java API Javadoc because most users likely 
+            <!-- Link against newer Java API Javadoc because most users likely
               use a newer Java version than the one used for building this project -->
             <detectJavaApiLink>false</detectJavaApiLink>
             <links>
               <link>https://docs.oracle.com/en/java/javase/11/docs/api/</link>
             </links>
-            <!-- Disable detection of offline links between Maven modules: 
-              (1) Only `gson` module is published, so for other modules Javadoc links don't 
-              matter much at the moment; (2) The derived URL for the modules is based on 
-              the project URL (= Gson GitHub repo) which is incorrect because it is not 
+            <!-- Disable detection of offline links between Maven modules:
+              (1) Only `gson` module is published, so for other modules Javadoc links don't
+              matter much at the moment; (2) The derived URL for the modules is based on
+              the project URL (= Gson GitHub repo) which is incorrect because it is not
               hosting the Javadoc (3) It might fail due to https://bugs.openjdk.java.net/browse/JDK-8212233 -->
             <detectOfflineLinks>false</detectOfflineLinks>
           </configuration>
@@ -126,6 +126,11 @@
         <configuration>
           <autoVersionSubmodules>true</autoVersionSubmodules>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.openclover</groupId>
+        <artifactId>clover-maven-plugin</artifactId>
+        <version>4.4.1</version>
       </plugin>
     </plugins>
   </build>
