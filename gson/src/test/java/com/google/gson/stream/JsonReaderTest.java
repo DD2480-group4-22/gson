@@ -1964,6 +1964,34 @@ public final class JsonReaderTest {
     }; */
   }
 
+  //TEST ADDED BY NELLY
+  @Test
+  public void testLenientDoubleSemiColon() throws IOException {
+    String json = "[NaN; Infinity; -Infinity]";
+    JsonReader reader = new JsonReader(reader(json));
+    reader.setLenient(true);
+    reader.beginArray();
+    assertTrue(Double.isNaN(reader.nextDouble()));
+    assertEquals(Double.POSITIVE_INFINITY, reader.nextDouble(), 0);
+    assertEquals(Double.NEGATIVE_INFINITY, reader.nextDouble(), 0);
+    reader.endArray();
+  }
+
+  @Test
+  public void testEmptyStringNameSingleQuoted() throws IOException {
+    JsonReader reader = new JsonReader(reader("{\'\':true}"));
+    reader.setLenient(true);
+    assertEquals(BEGIN_OBJECT, reader.peek());
+    reader.beginObject();
+    assertEquals(NAME, reader.peek());
+    assertEquals("", reader.nextName());
+    assertEquals(JsonToken.BOOLEAN, reader.peek());
+    assertEquals(true, reader.nextBoolean());
+    assertEquals(JsonToken.END_OBJECT, reader.peek());
+      reader.endObject();
+    assertEquals(JsonToken.END_DOCUMENT, reader.peek());
+  }
+
   /**
    * Prints branch coverage pf method peek() in JsonReader.java.
    * For each branch ID true means the the branch has been reached
