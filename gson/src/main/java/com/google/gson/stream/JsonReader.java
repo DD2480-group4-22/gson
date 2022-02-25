@@ -18,6 +18,7 @@ package com.google.gson.stream;
 
 import com.google.gson.internal.JsonReaderInternalAccess;
 import com.google.gson.internal.bind.JsonTreeReader;
+//import com.google.gson.stream.JsonReaderTest;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -189,6 +190,11 @@ import java.util.Arrays;
  * @since 1.6
  */
 public class JsonReader implements Closeable {
+
+  public static boolean[] coverageSkipUnQuotedValue = new boolean[20];
+  public static boolean[] coverageIsLiteral = new boolean[17];
+
+
   private static final long MIN_INCOMPLETE_INTEGER = Long.MIN_VALUE / 10;
 
   private static final int PEEKED_NONE = 0;
@@ -741,30 +747,86 @@ public class JsonReader implements Closeable {
     }
   }
 
+// Coverage tool for isLiteral 
   private boolean isLiteral(char c) throws IOException {
     switch (c) {
     case '/':
+    //#1
+    coverageIsLiteral[0] = true;
+
     case '\\':
+    //#2
+    coverageIsLiteral[1] = true;
+
     case ';':
+    //#3
+    coverageIsLiteral[2] = true;
+
     case '#':
+    //#4
+    coverageIsLiteral[3] = true;
+
     case '=':
-      checkLenient(); // fall-through
+    //#5
+    coverageIsLiteral[4] = true;
+    checkLenient(); //fall-through
+    break;
+
     case '{':
+    //#6
+    coverageIsLiteral[5] = true;
+
     case '}':
+    //#7
+    coverageIsLiteral[6] = true;
+
     case '[':
+    //#8
+    coverageIsLiteral[7] = true;
+
     case ']':
+    //#9
+    coverageIsLiteral[8] = true;
+
     case ':':
+    //#10
+    coverageIsLiteral[9] = true;
+
     case ',':
+    //#11
+    coverageIsLiteral[10] = true;
+
     case ' ':
+    //#12
+    coverageIsLiteral[11] = true;
+
     case '\t':
+    //#13
+    coverageIsLiteral[12] = true;
+
     case '\f':
+    //#14
+    coverageIsLiteral[13] = true;
+
     case '\r':
-    case '\n':
-      return false;
+    //#15
+    coverageIsLiteral[14] = true;
+
+    case '\n':    
+    //#16
+    coverageIsLiteral[15] = true;
+
+    return false;
+    //#17
     default:
+      coverageIsLiteral[16] = true;
       return true;
     }
-  }
+  return false; 
+} 
+
+
+
 
   /**
    * Returns the next token, a {@link com.google.gson.stream.JsonToken#NAME property name}, and
@@ -1121,32 +1183,101 @@ public class JsonReader implements Closeable {
 
   private void skipUnquotedValue() throws IOException {
     do {
+      // #0
+      coverageSkipUnQuotedValue[0] = true;
       int i = 0;
       for (; pos + i < limit; i++) {
+        // #1
+        coverageSkipUnQuotedValue[1] = true;
         switch (buffer[pos + i]) {
         case '/':
-        case '\\':
-        case ';':
-        case '#':
-        case '=':
+          // #2
+          coverageSkipUnQuotedValue[2] = true;
           checkLenient(); // fall-through
+          break;        
+        case '\\':
+          // #3
+          coverageSkipUnQuotedValue[3] = true;
+          checkLenient(); // fall-through
+          break;        
+        case ';':
+          // #4
+          coverageSkipUnQuotedValue[4] = true;
+          checkLenient(); // fall-through
+          break;        
+        case '#':
+          // #5
+          coverageSkipUnQuotedValue[5] = true;
+          checkLenient(); // fall-through
+          break;        
+        case '=':
+          // #6
+          coverageSkipUnQuotedValue[6] = true;
+          checkLenient(); // fall-through
+          break;
         case '{':
+          // #7
+          coverageSkipUnQuotedValue[7] = true;
+          pos += i;
+          return;        
         case '}':
+          // #8
+          coverageSkipUnQuotedValue[8] = true;
+          pos += i;
+          return;        
         case '[':
+          // #9
+          coverageSkipUnQuotedValue[9] = true;
+          pos += i;
+          return;        
         case ']':
+          // #10
+          coverageSkipUnQuotedValue[10] = true;
+          pos += i;
+          return;        
         case ':':
+          // #11
+          coverageSkipUnQuotedValue[11] = true;
+          pos += i;
+          return;        
         case ',':
+          // #12
+          coverageSkipUnQuotedValue[12] = true;
+          pos += i;
+          return;        
         case ' ':
+          // #13
+          coverageSkipUnQuotedValue[13] = true;
+          pos += i;
+          return;        
         case '\t':
+          // #14
+          coverageSkipUnQuotedValue[14] = true;
+          pos += i;
+          return;        
         case '\f':
+          // #15
+          coverageSkipUnQuotedValue[15] = true;
+          pos += i;
+          return;        
         case '\r':
+          // #16
+          coverageSkipUnQuotedValue[16] = true;
+          pos += i;
+          return;        
         case '\n':
+          // #17
+          coverageSkipUnQuotedValue[17] = true;
           pos += i;
           return;
         }
       }
+      // #18
+      coverageSkipUnQuotedValue[18] = true;
       pos += i;
     } while (fillBuffer(1));
+    // #19
+    coverageSkipUnQuotedValue[19] = true;
   }
 
   /**
