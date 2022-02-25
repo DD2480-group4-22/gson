@@ -191,7 +191,8 @@ import java.util.Arrays;
  */
 public class JsonReader implements Closeable {
 
-  /**Estimates branch coverage of peek(), each
+  /**
+   * Estimates branch coverage of peek(), each
    * branch ID turns true if it has been visited
    * and is false if not.
    */

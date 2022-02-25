@@ -41,10 +41,6 @@ import static com.google.gson.stream.JsonToken.STRING;
 @SuppressWarnings("resource")
 //public final class JsonReaderTest extends TestCase {
 public final class JsonReaderTest {
-  /*
-  public JsonReaderTest(String method) {
-    super(method);
-  }*/
 
   @Test
   public void testReadArray() throws IOException {
@@ -1978,60 +1974,6 @@ public final class JsonReaderTest {
     System.out.println("Branch coverage, with ID:s for the branches, of peek() in JsonReader.java:");
     for (int i = 0; i < JsonReader.coveragePeek.length; i++) {
       System.out.println(i + ": " + JsonReader.coveragePeek[i]);
-  // NEW TESTS ADDED BY OSKAR
-
-  @Test
-  public void testSkipUnquotedSlash() throws IOException {
-    JsonReader reader = new JsonReader(reader("{" + "x" + "/"));
-    reader.setLenient(true);
-    assertEquals(JsonToken.BEGIN_OBJECT, reader.peek());
-    reader.beginObject();
-    reader.skipValue();
-  }
-
-  @Test
-  public void testSkipUnquotedBackslash() throws IOException {
-    JsonReader reader = new JsonReader(reader("{" + "x" + "\\"));
-    reader.setLenient(true);
-    assertEquals(JsonToken.BEGIN_OBJECT, reader.peek());
-    reader.beginObject();
-    reader.skipValue();
-  }
-
-  @Test
-  public void testSkipUnquotedSemicolon() throws IOException {
-    JsonReader reader = new JsonReader(reader("[" + "x" + ";"));
-    reader.setLenient(true);
-    assertEquals(JsonToken.BEGIN_ARRAY, reader.peek());
-    reader.beginArray();
-    reader.skipValue();
-  }
-
-  @Test
-  public void testSkipUnquotedHashtag() throws IOException {
-    JsonReader reader = new JsonReader(reader("{" + "x" + "#"));
-    reader.setLenient(true);
-    assertEquals(JsonToken.BEGIN_OBJECT, reader.peek());
-    reader.beginObject();
-    reader.skipValue();
-  }
-
-  @Test
-  public void testSkipUnquotedEquals() throws IOException {
-    JsonReader reader = new JsonReader(reader("[" + "x" + "="));
-    reader.setLenient(true);
-    assertEquals(JsonToken.BEGIN_ARRAY, reader.peek());
-    reader.beginArray();
-    reader.skipValue();
-  }
-
-  @AfterClass
-  public static void printCoverage() {  
-    JsonReaderTest jrt = new JsonReaderTest();
-    JsonReader reader = new JsonReader(jrt.reader(""));
-    System.out.println("Coverage of skipUnQuotedValue:");
-    for (int i = 0; i < reader.coverageSkipUnQuotedValue.length; i++) {
-      System.out.println(i + ": " + reader.coverageSkipUnQuotedValue[i]);
     }
   }
 }
