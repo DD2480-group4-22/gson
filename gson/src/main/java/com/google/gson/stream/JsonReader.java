@@ -191,7 +191,7 @@ import java.util.Arrays;
  */
 public class JsonReader implements Closeable {
 
-  public static boolean[] coverageDoPeek = new boolean[44];
+  public static boolean[] coverageDoPeek = new boolean[45];
   public static boolean[] coverageSkipUnQuotedValue = new boolean[20];
 
   private static final long MIN_INCOMPLETE_INTEGER = Long.MIN_VALUE / 10;
