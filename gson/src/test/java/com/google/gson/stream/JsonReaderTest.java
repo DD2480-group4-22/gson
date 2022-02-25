@@ -1837,4 +1837,15 @@ public final class JsonReaderTest extends TestCase {
       }
     }; */
   }
+
+
+  @AfterClass
+  public static void printCoverage() {
+    JsonReaderTest jrt = new JsonReaderTest();
+    JsonReader reader = new JsonReader(jrt.reader(""));
+    System.out.println("Coverage of doPeek:");
+    for (int i = 0; i < reader.coverageDoPeek.length; i++) {
+      System.out.println(i + ": " + reader.coverageDoPeek[i]);
+    }
+  }
 }
