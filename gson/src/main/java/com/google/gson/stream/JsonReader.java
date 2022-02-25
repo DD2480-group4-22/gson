@@ -189,6 +189,9 @@ import java.util.Arrays;
  * @since 1.6
  */
 public class JsonReader implements Closeable {
+  public static boolean[] coverageIsLiteral = new boolean[17];
+  public static boolean[] coverageNextNonWhitespace = new boolean[25];
+
   private static final long MIN_INCOMPLETE_INTEGER = Long.MIN_VALUE / 10;
 
   private static final int PEEKED_NONE = 0;
@@ -744,24 +747,41 @@ public class JsonReader implements Closeable {
   private boolean isLiteral(char c) throws IOException {
     switch (c) {
     case '/':
+      coverageIsLiteral[0] = true;
     case '\\':
+      coverageIsLiteral[1] = true;
     case ';':
+      coverageIsLiteral[2] = true;
     case '#':
+      coverageIsLiteral[3] = true;
     case '=':
+      coverageIsLiteral[4] = true;
       checkLenient(); // fall-through
     case '{':
+      coverageIsLiteral[5] = true;
     case '}':
+      coverageIsLiteral[6] = true;
     case '[':
+      coverageIsLiteral[7] = true;
     case ']':
+      coverageIsLiteral[8] = true;
     case ':':
+      coverageIsLiteral[9] = true;
     case ',':
+      coverageIsLiteral[10] = true;
     case ' ':
+      coverageIsLiteral[11] = true;
     case '\t':
+      coverageIsLiteral[12] = true;
     case '\f':
+      coverageIsLiteral[13] = true;
     case '\r':
+      coverageIsLiteral[14] = true;
     case '\n':
+      coverageIsLiteral[15] = true;
       return false;
     default:
+      coverageIsLiteral[16] = true;
       return true;
     }
   }
@@ -1304,6 +1324,14 @@ public class JsonReader implements Closeable {
     return false;
   }
 
+  public int callNextNonWhitespace(boolean throwOnEof) throws IOException {
+    return nextNonWhitespace(throwOnEof);
+  }
+
+  public void changeLimit(int val) {
+    limit = val;
+  }
+
   /**
    * Returns the next character in the stream that is neither whitespace nor a
    * part of a comment. When this returns, the returned character is always at
@@ -1319,53 +1347,85 @@ public class JsonReader implements Closeable {
      * before any (potentially indirect) call to fillBuffer() and reread both
      * 'p' and 'l' after any (potentially indirect) call to the same method.
      */
+    coverageNextNonWhitespace[0] = true;
     char[] buffer = this.buffer;
     int p = pos;
     int l = limit;
     while (true) {
+      coverageNextNonWhitespace[1] = true;
       if (p == l) {
+        coverageNextNonWhitespace[2] = true;
         pos = p;
         if (!fillBuffer(1)) {
+          coverageNextNonWhitespace[3] = true;
           break;
+        } else {
+          coverageNextNonWhitespace[4] = true;
         }
         p = pos;
         l = limit;
+      } else {
+        coverageNextNonWhitespace[5] = true;
       }
 
       int c = buffer[p++];
       if (c == '\n') {
+        coverageNextNonWhitespace[6] = true;
         lineNumber++;
         lineStart = p;
         continue;
       } else if (c == ' ' || c == '\r' || c == '\t') {
+        switch(c) {
+          case ' ':
+            coverageNextNonWhitespace[7] = true;
+            break;
+          case '\r':
+            coverageNextNonWhitespace[23] = true;
+            break;
+          case '\t':
+            coverageNextNonWhitespace[24] = true;
+            break;
+        }
         continue;
       }
-
+      coverageNextNonWhitespace[8] = true;
       if (c == '/') {
+        coverageNextNonWhitespace[9] = true;
         pos = p;
         if (p == l) {
+          coverageNextNonWhitespace[10] = true;
           pos--; // push back '/' so it's still in the buffer when this method returns
           boolean charsLoaded = fillBuffer(2);
           pos++; // consume the '/' again
           if (!charsLoaded) {
+            coverageNextNonWhitespace[11] = true;
             return c;
+          } else {
+            coverageNextNonWhitespace[12] = true;
           }
+        } else {
+          coverageNextNonWhitespace[13] = true;
         }
 
         checkLenient();
         char peek = buffer[pos];
         switch (peek) {
         case '*':
+          coverageNextNonWhitespace[14] = true;
           // skip a /* c-style comment */
           pos++;
           if (!skipTo("*/")) {
+            coverageNextNonWhitespace[15] = true;
             throw syntaxError("Unterminated comment");
+          } else {
+            coverageNextNonWhitespace[16] = true;
           }
           p = pos + 2;
           l = limit;
           continue;
 
         case '/':
+          coverageNextNonWhitespace[17] = true;
           // skip a // end-of-line comment
           pos++;
           skipToEndOfLine();
@@ -1374,9 +1434,11 @@ public class JsonReader implements Closeable {
           continue;
 
         default:
+          coverageNextNonWhitespace[18] = true;
           return c;
         }
       } else if (c == '#') {
+        coverageNextNonWhitespace[19] = true;
         pos = p;
         /*
          * Skip a # hash end-of-line comment. The JSON RFC doesn't
@@ -1388,13 +1450,16 @@ public class JsonReader implements Closeable {
         p = pos;
         l = limit;
       } else {
+        coverageNextNonWhitespace[20] = true;
         pos = p;
         return c;
       }
     }
     if (throwOnEof) {
+      coverageNextNonWhitespace[21] = true;
       throw new EOFException("End of input" + locationString());
     } else {
+      coverageNextNonWhitespace[22] = true;
       return -1;
     }
   }
@@ -1426,7 +1491,7 @@ public class JsonReader implements Closeable {
   /**
    * @param toFind a string to search for. Must not contain a newline.
    */
-  private boolean skipTo(String toFind) throws IOException {
+  public boolean skipTo(String toFind) throws IOException {
     int length = toFind.length();
     outer:
     for (; pos + length <= limit || fillBuffer(length); pos++) {

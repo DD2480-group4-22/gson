@@ -1816,6 +1816,51 @@ public final class JsonReaderTest extends TestCase {
     }
   }
 
+  // ### Jacob's own tests ###
+  /**
+   * Test if nextNonWhitespace throws an IOException when a comment isn't terminated.
+   */
+  public void testUnterminatedComment() throws IOException {
+    JsonReader reader = new JsonReader(reader("/* Got things to comment on"));
+    reader.setLenient(true);
+    try {
+      reader.callNextNonWhitespace(false);
+      assertFalse(reader.skipTo("*/"));
+    } catch (IOException expected) {
+    }
+  }
+
+  /**
+   * Test if nextNonWhitespace throws an IOException when a comment is almost terminated.
+   */
+  public void testAlmostterminatedComment() throws IOException {
+    JsonReader reader = new JsonReader(reader("/* Got things to comment on*"));
+    reader.setLenient(true);
+    try {
+      reader.callNextNonWhitespace(false);
+      assertFalse(reader.skipTo("*/"));
+    } catch (IOException expected) {
+    }
+  }
+
+  private static int count = 0;
+  protected void runTest() throws Throwable{
+    super.runTest();
+    count++;
+    if(count > 123) {
+      JsonReaderTest jrt = new JsonReaderTest();
+      JsonReader reader = new JsonReader(jrt.reader(""));
+      System.out.println("Coverage of isLiteral:");
+      for (int i = 0; i < reader.coverageIsLiteral.length; i++) {
+        System.out.println(i + ": " + reader.coverageIsLiteral[i]);
+      }
+      System.out.println("Coverage of nextNonWhitespace:");
+      for (int i = 0; i < reader.coverageNextNonWhitespace.length; i++) {
+        System.out.println(i + ": " + reader.coverageNextNonWhitespace[i]);
+      }
+    }
+  }
+
   /**
    * Returns a reader that returns one character at a time.
    */
