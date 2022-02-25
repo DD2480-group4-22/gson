@@ -18,6 +18,7 @@ package com.google.gson.stream;
 
 import com.google.gson.internal.JsonReaderInternalAccess;
 import com.google.gson.internal.bind.JsonTreeReader;
+//import com.google.gson.stream.JsonReaderTest;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -189,6 +190,13 @@ import java.util.Arrays;
  * @since 1.6
  */
 public class JsonReader implements Closeable {
+
+  /**Estimates branch coverage of peek(), each
+   * branch ID turns true if it has been visited
+   * and is false if not.
+   */
+  public static boolean[] coveragePeek= new boolean[20];
+
   private static final long MIN_INCOMPLETE_INTEGER = Long.MIN_VALUE / 10;
 
   private static final int PEEKED_NONE = 0;
@@ -422,38 +430,60 @@ public class JsonReader implements Closeable {
   public JsonToken peek() throws IOException {
     int p = peeked;
     if (p == PEEKED_NONE) {
+      coveragePeek[0] = true;
       p = doPeek();
     }
-
+    else{
+      coveragePeek[1] = true;
+    }
+    
     switch (p) {
     case PEEKED_BEGIN_OBJECT:
+      coveragePeek[2] = true;
       return JsonToken.BEGIN_OBJECT;
     case PEEKED_END_OBJECT:
+      coveragePeek[3] = true;
       return JsonToken.END_OBJECT;
     case PEEKED_BEGIN_ARRAY:
+      coveragePeek[4] = true;
       return JsonToken.BEGIN_ARRAY;
     case PEEKED_END_ARRAY:
+      coveragePeek[5] = true;
       return JsonToken.END_ARRAY;
     case PEEKED_SINGLE_QUOTED_NAME:
+      coveragePeek[6] = true;
     case PEEKED_DOUBLE_QUOTED_NAME:
+      coveragePeek[7] = true;
     case PEEKED_UNQUOTED_NAME:
+      coveragePeek[8] = true;
       return JsonToken.NAME;
     case PEEKED_TRUE:
+      coveragePeek[9] = true;
     case PEEKED_FALSE:
+      coveragePeek[10] = true;
       return JsonToken.BOOLEAN;
     case PEEKED_NULL:
+      coveragePeek[11] = true;
       return JsonToken.NULL;
     case PEEKED_SINGLE_QUOTED:
+      coveragePeek[12] = true;
     case PEEKED_DOUBLE_QUOTED:
+      coveragePeek[13] = true;
     case PEEKED_UNQUOTED:
+      coveragePeek[14] = true;
     case PEEKED_BUFFERED:
+      coveragePeek[15] = true;
       return JsonToken.STRING;
     case PEEKED_LONG:
+      coveragePeek[16] = true;
     case PEEKED_NUMBER:
+      coveragePeek[17] = true;
       return JsonToken.NUMBER;
     case PEEKED_EOF:
+      coveragePeek[18] = true;
       return JsonToken.END_DOCUMENT;
     default:
+      coveragePeek[19] = true;
       throw new AssertionError();
     }
   }
