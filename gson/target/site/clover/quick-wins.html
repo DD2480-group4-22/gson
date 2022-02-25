@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    
+    
+    <link rel="SHORTCUT ICON" href="img/clover.ico" />
+
+    <link rel="stylesheet" href="aui/css/aui.min.css" media="all"/>
+    <link rel="stylesheet" href="aui/css/aui-experimental.min.css" media="all"/>
+    <!--[if IE 9]><link rel="stylesheet" href="aui/css/aui-ie9.min.css" media="all"/><![endif]-->
+
+    <style type="text/css" media="all">
+        @import url('style.css');
+        @import url('tree.css');
+        
+    </style>
+
+    <script src="jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="aui/js/aui.min.js" type="text/javascript"></script>
+    <script src="aui/js/aui-experimental.min.js" type="text/javascript"></script>
+    <script src="aui/js/aui-soy.min.js" type="text/javascript"></script>
+
+    <script src="package-nodes-tree.js" type="text/javascript"></script>
+    <script src="clover-tree.js" type="text/javascript"></script>
+    <script src="clover.js" type="text/javascript"></script>
+    <script src="clover-descriptions.js" type="text/javascript"></script>
+    <script src="cloud.js" type="text/javascript"></script>
+
+            <title>Gson 2.9.1-SNAPSHOT</title>
+    </head>
+
+<body  >
+    <div id="page">
+        
+        
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation">
+        <div class="aui-header-inner">
+            <div class="aui-header-primary">
+                <h1 id="logo" class="aui-header-logo aui-header-logo-clover">
+                    <a href="http://openclover.org" title="Visit OpenClover home page"><span class="aui-header-logo-device">OpenClover</span></a>
+                </h1>
+                            </div>
+            <div class="aui-header-secondary">
+                <ul class="aui-nav">
+                    <li id="system-help-menu">
+                        <a class="aui-nav-link" title="Open online documentation" target="_blank"
+                           href="http://openclover.org/documentation">
+                            <span class="aui-icon aui-icon-small aui-iconfont-help">&#160;Help</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+        
+        <div class="aui-page-panel">
+            <div class="aui-page-panel-inner">
+                <div class="aui-page-panel-nav aui-page-panel-nav-clover">
+                    
+
+<div class="aui-page-header-inner" style="margin-bottom: 20px;">
+    <div class="aui-page-header-image">
+                    <a href="https://github.com/google/gson/gson" target="_top">
+                <div class="aui-avatar aui-avatar-large aui-avatar-project">
+            <div class="aui-avatar-inner">
+                                    <img src="img/clover_logo_large.png" alt="Clover icon"/>
+                            </div>
+        </div>
+                    </a>
+            </div>
+    <div class="aui-page-header-main" >
+        <h1>
+                            <a href="https://github.com/google/gson/gson" target="_top">
+                                        Gson 2.9.1-SNAPSHOT
+                                        </a>
+                    </h1>
+    </div>
+</div>
+
+<nav class="aui-navgroup aui-navgroup-vertical">
+    <div class="aui-navgroup-inner">
+                                            <ul class="aui-nav">
+                <li class="aui-nav-selected">
+                    <a href="dashboard.html">Project overview</a>
+                </li>
+            </ul>
+        
+                <div class="aui-nav-heading packages-nav-heading">
+            <strong>Packages</strong>
+        </div>
+        <div class="aui-nav project-packages">
+            <form method="get" action="#" class="aui package-filter-container">
+                <input type="text" autocomplete="off" class="package-filter text"
+                       placeholder="Type to filter packages..." name="package-filter" id="package-filter"
+                       title="Start typing package name (or part of the name) to search through the tree. Use arrow keys and the Enter key to navigate."/>
+            </form>
+            <p class="package-filter-no-results-message hidden">
+                <small>No results found.</small>
+            </p>
+                                                  <div class="packages-tree-wrapper" data-root-relative="" data-package-name="">
+                <div class="packages-tree-container"></div>
+                <div class="clover-packages-lozenges"></div>
+            </div>
+        </div>
+        
+            </div>
+</nav>                </div>
+                <section class="aui-page-panel-content">
+                    <div class="aui-page-panel-content-clover">
+
+                    
+                    <ol class="aui-nav aui-nav-breadcrumbs">
+            
+        <li><a href="dashboard.html">Project Clover database fre feb. 25 2022 11:20:08 CET</a></li>
+    </ol>
+    
+<h1 class="aui-h2-clover">
+            Project overview
+    </h1>
+<div class="aui-tabs horizontal-tabs">
+            <ul class="tabs-menu">
+            <li class="menu-item ">
+            <a href="dashboard.html">Dashboard</a>
+        </li>
+                <li class="menu-item ">
+            <a href="pkg-summary.html"><strong>Application code</strong></a>
+        </li>
+                <li class="menu-item ">
+            <a href="testsrc-pkg-summary.html"><strong>Test code</strong></a>
+        </li>
+        <li class="menu-item ">
+            <a href="test-pkg-summary.html"><strong>Test results</strong></a>
+        </li>
+                <li class="menu-item ">
+            <a href="top-risks.html"><strong>Top risks</strong></a>
+        </li>
+        <li class="menu-item active-tab">
+            <a href="quick-wins.html"><strong>Quick wins</strong></a>
+        </li>
+                                                <li class="menu-item ">
+                <a href="treemap.html"><strong>Coverage tree map</strong></a>
+            </li>
+            </ul>
+    <div class="tabs-pane active-pane" id="tabs-first">
+
+        <div>&#160;</div>
+
+        
+
+
+                        <div style="text-align: right; margin-bottom: 10px">
+            
+            
+                                    <button class="aui-button aui-button-subtle" id="popupHelp">
+    <span class="aui-icon aui-icon-small aui-iconfont-help"></span>&#160;How to read this chart
+</button>
+<script>
+    AJS.InlineDialog(AJS.$("#popupHelp"), "helpDialog",
+            function (content, trigger, showPopup) {
+                var description = quickWinsDescription();
+                var title = 'Quick Wins';
+                content.css({"padding": "20px"}).html(
+                        '<h2>' + title + '</h2>' + description);
+                showPopup();
+                return false;
+            },
+            {
+                width: 600
+            }
+    );
+</script>
+        </div>
+
+        
+
+<div style="padding: 20px; border: 1px solid #cccccc; background-color: #f5f5f5; border-radius: 3px">
+          <div id="deepPackageCloud"  >
+                          
+    
+        
+    
+            <a href="com/google/gson/internal/$Gson$Preconditions.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 13 , # Elements Covered - 11 ">$Gson$Preconditions</a>
+            
+    
+            <a href="com/google/gson/internal/$Gson$Types.html" class="tag"
+            style="font-size: 22px;color:#de7b72"
+            title="# Elements - 338 , # Elements Covered - 304 ">$Gson$Types</a>
+            
+    
+            <a href="com/google/gson/internal/$Gson$Types.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 10 , # Elements Covered - 8 ">$Gson$Types.GenericArrayTypeImpl</a>
+            
+    
+            <a href="com/google/gson/internal/$Gson$Types.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 41 , # Elements Covered - 27 ">$Gson$Types.ParameterizedTypeImpl</a>
+            
+    
+            <a href="com/google/gson/internal/$Gson$Types.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 37 , # Elements Covered - 27 ">$Gson$Types.WildcardTypeImpl</a>
+            
+    
+            <a href="com/google/gson/internal/bind/ArrayTypeAdapter.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 46 , # Elements Covered - 46 ">ArrayTypeAdapter</a>
+            
+    
+            <a href="com/google/gson/internal/bind/CollectionTypeAdapterFactory.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 14 , # Elements Covered - 14 ">CollectionTypeAdapterFactory</a>
+            
+    
+            <a href="com/google/gson/internal/bind/CollectionTypeAdapterFactory.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 28 , # Elements Covered - 28 ">CollectionTypeAdapterFactory.Adapter</a>
+            
+    
+            <a href="com/google/gson/internal/ConstructorConstructor.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 158 , # Elements Covered - 145 ">ConstructorConstructor</a>
+            
+    
+            <a href="com/google/gson/internal/bind/DateTypeAdapter.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 41 , # Elements Covered - 35 ">DateTypeAdapter</a>
+            
+    
+            <a href="com/google/gson/internal/bind/DefaultDateTypeAdapter.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 64 , # Elements Covered - 54 ">DefaultDateTypeAdapter</a>
+            
+    
+            <a href="com/google/gson/internal/bind/DefaultDateTypeAdapter.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 14 , # Elements Covered - 14 ">DefaultDateTypeAdapter.DateType</a>
+            
+    
+            <a href="com/google/gson/internal/Excluder.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 162 , # Elements Covered - 158 ">Excluder</a>
+            
+    
+            <a href="com/google/gson/FieldAttributes.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 21 , # Elements Covered - 17 ">FieldAttributes</a>
+            
+    
+            <a href="com/google/gson/FieldNamingPolicy.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 46 , # Elements Covered - 46 ">FieldNamingPolicy</a>
+            
+    
+            <a href="com/google/gson/Gson.html" class="tag"
+            style="font-size: 24px;color:#de7b72"
+            title="# Elements - 398 , # Elements Covered - 373 ">Gson</a>
+            
+    
+            <a href="com/google/gson/Gson.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 18 , # Elements Covered - 12 ">Gson.FutureTypeAdapter</a>
+            
+    
+            <a href="com/google/gson/GsonBuilder.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 163 , # Elements Covered - 145 ">GsonBuilder</a>
+            
+    
+            <a href="com/google/gson/internal/bind/util/ISO8601Utils.html" class="tag"
+            style="font-size: 18px;color:#d9695f"
+            title="# Elements - 220 , # Elements Covered - 188 ">ISO8601Utils</a>
+            
+    
+            <a href="com/google/gson/internal/JavaVersion.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 43 , # Elements Covered - 41 ">JavaVersion</a>
+            
+    
+            <a href="com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 37 , # Elements Covered - 37 ">JsonAdapterAnnotationTypeAdapterFactory</a>
+            
+    
+            <a href="com/google/gson/JsonArray.html" class="tag"
+            style="font-size: 15px;color:#d5584c"
+            title="# Elements - 131 , # Elements Covered - 71 ">JsonArray</a>
+            
+    
+            <a href="com/google/gson/JsonElement.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 64 , # Elements Covered - 35 ">JsonElement</a>
+            
+    
+            <a href="com/google/gson/JsonIOException.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 6 , # Elements Covered - 2 ">JsonIOException</a>
+            
+    
+            <a href="com/google/gson/JsonNull.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 7 , # Elements Covered - 7 ">JsonNull</a>
+            
+    
+            <a href="com/google/gson/JsonObject.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 47 , # Elements Covered - 38 ">JsonObject</a>
+            
+    
+            <a href="com/google/gson/JsonParseException.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 6 , # Elements Covered - 6 ">JsonParseException</a>
+            
+    
+            <a href="com/google/gson/JsonParser.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 29 , # Elements Covered - 16 ">JsonParser</a>
+            
+    
+            <a href="com/google/gson/JsonPrimitive.html" class="tag"
+            style="font-size: 15px;color:#d5584c"
+            title="# Elements - 118 , # Elements Covered - 108 ">JsonPrimitive</a>
+            
+    
+            <a href="com/google/gson/stream/JsonReader.html" class="tag"
+            style="font-size: 48px;color:#89c495"
+            title="# Elements - 1 192 , # Elements Covered - 1 090 ">JsonReader</a>
+            
+    
+            <a href="com/google/gson/JsonStreamParser.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 26 , # Elements Covered - 17 ">JsonStreamParser</a>
+            
+    
+            <a href="com/google/gson/JsonSyntaxException.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 6 , # Elements Covered - 6 ">JsonSyntaxException</a>
+            
+    
+            <a href="com/google/gson/internal/bind/JsonTreeReader.html" class="tag"
+            style="font-size: 19px;color:#d9695f"
+            title="# Elements - 260 , # Elements Covered - 242 ">JsonTreeReader</a>
+            
+    
+            <a href="com/google/gson/internal/bind/JsonTreeWriter.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 138 , # Elements Covered - 111 ">JsonTreeWriter</a>
+            
+    
+            <a href="com/google/gson/stream/JsonWriter.html" class="tag"
+            style="font-size: 21px;color:#d9695f"
+            title="# Elements - 302 , # Elements Covered - 291 ">JsonWriter</a>
+            
+    
+            <a href="com/google/gson/internal/LazilyParsedNumber.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 35 , # Elements Covered - 24 ">LazilyParsedNumber</a>
+            
+    
+            <a href="com/google/gson/internal/LinkedTreeMap.html" class="tag"
+            style="font-size: 21px;color:#d9695f"
+            title="# Elements - 310 , # Elements Covered - 276 ">LinkedTreeMap</a>
+            
+    
+            <a href="com/google/gson/internal/LinkedTreeMap.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 22 , # Elements Covered - 6 ">LinkedTreeMap.EntrySet</a>
+            
+    
+            <a href="com/google/gson/internal/LinkedTreeMap.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 12 , # Elements Covered - 8 ">LinkedTreeMap.KeySet</a>
+            
+    
+            <a href="com/google/gson/internal/LinkedTreeMap.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 23 , # Elements Covered - 17 ">LinkedTreeMap.LinkedTreeMapIterator</a>
+            
+    
+            <a href="com/google/gson/internal/LinkedTreeMap.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 56 , # Elements Covered - 25 ">LinkedTreeMap.Node</a>
+            
+    
+            <a href="com/google/gson/LongSerializationPolicy.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 12 , # Elements Covered - 12 ">LongSerializationPolicy</a>
+            
+    
+            <a href="com/google/gson/stream/MalformedJsonException.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 6 , # Elements Covered - 2 ">MalformedJsonException</a>
+            
+    
+            <a href="com/google/gson/internal/bind/MapTypeAdapterFactory.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 21 , # Elements Covered - 21 ">MapTypeAdapterFactory</a>
+            
+    
+            <a href="com/google/gson/internal/bind/MapTypeAdapterFactory.html" class="tag"
+            style="font-size: 15px;color:#d5584c"
+            title="# Elements - 109 , # Elements Covered - 97 ">MapTypeAdapterFactory.Adapter</a>
+            
+    
+            <a href="com/google/gson/internal/bind/NumberTypeAdapter.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 28 , # Elements Covered - 28 ">NumberTypeAdapter</a>
+            
+    
+            <a href="com/google/gson/internal/bind/ObjectTypeAdapter.html" class="tag"
+            style="font-size: 13px;color:#d5584c"
+            title="# Elements - 63 , # Elements Covered - 61 ">ObjectTypeAdapter</a>
+            
+    
+            <a href="com/google/gson/internal/PreJava9DateFormatProvider.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 40 , # Elements Covered - 32 ">PreJava9DateFormatProvider</a>
+            
+    
+            <a href="com/google/gson/internal/Primitives.html" class="tag"
+            style="font-size: 14px;color:#d5584c"
+            title="# Elements - 81 , # Elements Covered - 62 ">Primitives</a>
+            
+    
+            <a href="com/google/gson/internal/reflect/ReflectionHelper.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 22 , # Elements Covered - 14 ">ReflectionHelper</a>
+            
+    
+            <a href="com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.html" class="tag"
+            style="font-size: 15px;color:#d5584c"
+            title="# Elements - 112 , # Elements Covered - 109 ">ReflectiveTypeAdapterFactory</a>
+            
+    
+            <a href="com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 42 , # Elements Covered - 40 ">ReflectiveTypeAdapterFactory.Adapter</a>
+            
+    
+            <a href="com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 4 , # Elements Covered - 4 ">ReflectiveTypeAdapterFactory.BoundField</a>
+            
+    
+            <a href="com/google/gson/internal/sql/SqlDateTypeAdapter.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 28 , # Elements Covered - 27 ">SqlDateTypeAdapter</a>
+            
+    
+            <a href="com/google/gson/internal/sql/SqlTimeTypeAdapter.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 27 , # Elements Covered - 26 ">SqlTimeTypeAdapter</a>
+            
+    
+            <a href="com/google/gson/internal/sql/SqlTimestampTypeAdapter.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 16 , # Elements Covered - 16 ">SqlTimestampTypeAdapter</a>
+            
+    
+            <a href="com/google/gson/internal/sql/SqlTypesSupport.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 25 , # Elements Covered - 17 ">SqlTypesSupport</a>
+            
+    
+            <a href="com/google/gson/internal/Streams.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 22 , # Elements Covered - 16 ">Streams</a>
+            
+    
+            <a href="com/google/gson/ToNumberPolicy.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 21 , # Elements Covered - 21 ">ToNumberPolicy</a>
+            
+    
+            <a href="com/google/gson/internal/bind/TreeTypeAdapter.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 42 , # Elements Covered - 39 ">TreeTypeAdapter</a>
+            
+    
+            <a href="com/google/gson/internal/bind/TreeTypeAdapter.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 6 , # Elements Covered - 6 ">TreeTypeAdapter.GsonContextImpl</a>
+            
+    
+            <a href="com/google/gson/internal/bind/TreeTypeAdapter.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 18 , # Elements Covered - 18 ">TreeTypeAdapter.SingleTypeFactory</a>
+            
+    
+            <a href="com/google/gson/TypeAdapter.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 40 , # Elements Covered - 37 ">TypeAdapter</a>
+            
+    
+            <a href="com/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper.html" class="tag"
+            style="font-size: 12px;color:#d04437"
+            title="# Elements - 29 , # Elements Covered - 29 ">TypeAdapterRuntimeTypeWrapper</a>
+            
+    
+            <a href="com/google/gson/internal/bind/TypeAdapters.html" class="tag"
+            style="font-size: 29px;color:#e28e87"
+            title="# Elements - 570 , # Elements Covered - 517 ">TypeAdapters</a>
+            
+    
+            <a href="com/google/gson/internal/bind/TypeAdapters.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 38 , # Elements Covered - 32 ">TypeAdapters.EnumTypeAdapter</a>
+            
+    
+            <a href="com/google/gson/reflect/TypeToken.html" class="tag"
+            style="font-size: 16px;color:#d5584c"
+            title="# Elements - 146 , # Elements Covered - 96 ">TypeToken</a>
+            
+    
+            <a href="com/google/gson/internal/UnsafeAllocator.html" class="tag"
+            style="font-size: 13px;color:#d04437"
+            title="# Elements - 41 , # Elements Covered - 21 ">UnsafeAllocator</a>
+           </div>
+   
+   </div>
+    </div> <!-- tabs-pane active-pane -->
+</div> <!-- aui-tabs horizontal-tabs -->
+
+                        </div> <!-- class="aui-page-panel-content-clover" -->
+                    <footer id="footer" role="contentinfo">
+    <section class="footer-body">
+        <ul>
+            <li>
+                Report generated by <a target="_new" href="http://openclover.org">OpenClover</a> v 4.4.1
+                on fre feb. 25 2022 11:20:31 CET using coverage data from fre feb. 25 2022 11:20:28 CET.
+            </li>
+        </ul>
+        <ul>
+            <li>OpenClover is free and open-source software. </li>
+        </ul>
+    </section>
+</footer>                </section> <!-- class="aui-page-panel-content" -->
+            </div> <!-- class="aui-page-panel-inner" -->
+        </div> <!-- class="aui-page-panel" -->
+    </div> <!-- id="page" -->
+</body>
+</html>
